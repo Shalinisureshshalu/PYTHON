@@ -1,0 +1,163 @@
+#	Alternate number series
+
+n = 10  
+for i in range(1, n+1):
+    if i % 2 == 0:   
+        print(-i)
+    else:            
+        print(i)
+
+OUTPUT:
+1
+-2
+3
+-4
+5
+-6
+7
+-8
+9
+-10
+
+# PRIME NUMBER
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):  
+        if n % i == 0:
+            return False
+    return True
+def reverse_number(n):
+    return int(str(n)[::-1])
+num = int(input())
+rev = reverse_number(num)
+if is_prime(num) and is_prime(rev):
+    print("Both are prime")
+else:
+    print("Condition not satisfied")
+
+INPUT: 13
+OUTPUT: Both are prime
+
+ Check Adam Number
+
+def reverse_number(n):
+    return int(str(n)[::-1])
+def is_adam_number(num):
+    square_num = num ** 2
+    rev_num = reverse_number(num)
+    square_rev = rev_num ** 2
+    rev_square = reverse_number(square_num)
+    if rev_square == square_rev:
+        return True
+    else:
+        return False
+n = int(input())
+if is_adam_number(n):
+    print("Adam Number")
+else:
+    print("Not Adam Number")
+
+INPUT: 43
+OUTPUT: Not Adam Number
+
+# Duck Number
+
+def is_duck_number(num_str):
+      return '0' in num_str[1:]
+num = input().strip()
+if is_duck_number(num):
+    print("Duck Number")
+else:
+    print("Not Duck Number")
+
+INPUT: 1203
+OUTPUT: Duck Number
+
+# Circular Prime Checker
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+def rotations(num_str):
+    return [int(num_str[i:] + num_str[:i]) for i in range(len(num_str))]
+def is_circular_prime(num):
+    num_str = str(num)
+    for rot in rotations(num_str):
+        if not is_prime(rot):
+            return False
+    return True
+n = int(input())
+if is_circular_prime(n):
+    print("Circular Prime")
+else:
+    print("Not Circular Prime")
+
+INPUT: 197
+OUTPUT: Circular Prime
+
+#Automorphic number
+
+def is_automorphic(num):
+    square = num ** 2
+    return str(square).endswith(str(num))
+n = int(input())
+
+if is_automorphic(n):
+    print("Automorphic Number")
+else:
+    print("Not Automorphic Number")
+
+INPUT: 24
+OUTPUT: Automorphic Number
+
+# Peterson Number
+
+import math
+def is_peterson(num):
+    total = 0
+    for digit in str(num):
+        total += math.factorial(int(digit))
+    return total == num
+n = int(input())
+if is_peterson(n):
+    print("Peterson Number")
+else:
+    print("Not Peterson Number")
+
+INPUT: 145
+OUTPUT: Peterson Number
+
+# Spiral Matrix Printing
+
+def spiral_order(matrix):
+    result = []
+    while matrix:
+        result += matrix[0]
+        matrix = matrix[1:]
+        if not matrix:
+            break
+        for row in matrix:
+            result.append(row[-1])
+            row.pop()
+        if matrix:
+            result += matrix[-1][::-1]
+            matrix = matrix[:-1]
+        for row in matrix[::-1]:
+            result.append(row[0])
+            row.pop(0)
+    return result
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print("Spiral Order:", *spiral_order(matrix))
+
+
+OUTPUT: Spiral Order: 1 2 3 6 9 8 7 4 5
