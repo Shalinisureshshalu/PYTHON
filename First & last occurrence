@@ -1,0 +1,21 @@
+#FIRST OCCURRENCE
+lst = [10, 20, 30, 20, 40]
+element = 20
+
+for i in range(len(lst)):
+    if lst[i] == element:
+        print("First occurrence index:", i)
+        break
+output: 
+First occurrence index: 1
+
+# LAST OCCURRENCE
+lst = [10, 20, 30, 20, 40]
+element = 20
+last_index = -1
+for i in range(len(lst)):
+    if lst[i] == element:
+        last_index = i
+print("Last occurrence index:", last_index)
+output:
+Last occurrence index: 3
