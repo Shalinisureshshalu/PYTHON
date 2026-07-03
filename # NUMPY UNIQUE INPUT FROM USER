@@ -1,0 +1,7 @@
+# NUMPY UNIQUE INPUT FROM USER 
+import numpy as np
+arr = list(map(int,input("Enter Elements: ").split()))
+print(np.unique(arr))
+
+Enter Elements: 5 3 2 3 2
+[2 3 5]
